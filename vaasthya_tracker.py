@@ -317,12 +317,11 @@ else:
 #----------------------------
 #Metric
 #----------------------------
-if not df.empty:
 target = 100
 
 progress = min(len(df)/target,1.0)
 
-st.subheader("Expansion Goal Progress")
+st.subheader("📈 Expansion Goal Progress")
 
 st.progress(progress)
 
