@@ -353,14 +353,16 @@ if not df.empty:
 #-----------------------
 #Dataframe
 #-----------------------
-city_states["Demand Score"] = city_states["Requests"] * 10
+if not df.empty:
 
-st.subheader("⭐ City Demand Score")
+    city_stats["Demand Score"] = city_stats["Requests"] * 10
 
-st.dataframe(
-    city_states,
-    use_container_width=True
-)
+    st.subheader("⭐ City Demand Score")
+
+    st.dataframe(
+        city_stats,
+        use_container_width=True
+    )
 
 #------------------------
 #State Wise Demand
@@ -384,20 +386,26 @@ st.dataframe(
 #------------------------
 st.subheader("🏆 Top 5 Cities")
 
-st.table(
-    city_stats.head(5)
-)
+if not df.empty:
+
+    st.table(
+        city_stats.head(5)
+    )
 
 #------------------------
 #Feedback
 #------------------------
 search = st.text_input("🔍 Search Feedback")
 
-if search:
-    feedback_df = feedback_df[
-        feedback_df["feedback"]
-        .str.contains(search, case=False, na=False)
-    ]
+if not df.empty:
+
+    search = st.text_input("🔍 Search Feedback")
+
+    if search:
+        feedback_df = feedback_df[
+            feedback_df["feedback"]
+            .str.contains(search, case=False, na=False)
+        ]
 
 #------------------------
 #CSV
