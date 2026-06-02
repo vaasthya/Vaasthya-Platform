@@ -353,7 +353,7 @@ if not df.empty:
 #-----------------------
 #Dataframe
 #-----------------------
-city_stats["Demand Score"] = city_stats["Requests"] * 10
+city_states["Demand Score"] = city_states["Requests"] * 10
 
 st.subheader("⭐ City Demand Score")
 
