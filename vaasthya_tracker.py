@@ -282,7 +282,7 @@ if not df.empty:
 
     st.subheader("👥 User Intent")
 
-     st.bar_chart(
+    st.bar_chart(
     df["user_type"].value_counts()
 )
     # =========================================
