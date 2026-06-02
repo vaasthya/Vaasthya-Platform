@@ -274,7 +274,7 @@ if not df.empty:
         use_container_width=True
     )
 
-   st.bar_chart(
+    st.bar_chart(
     problem_stats.set_index("problem")
 )
 
