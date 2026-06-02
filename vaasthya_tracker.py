@@ -320,9 +320,7 @@ else:
 if not df.empty:
 
     st.info(
-        f"{len(df)} Requested Cities On Vaasthya."
-    )
-
+    
 target = 100
 
 progress = min(len(df)/target,1.0)
