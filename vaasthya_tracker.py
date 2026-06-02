@@ -367,8 +367,6 @@ if not df.empty:
 #------------------------
 #State Wise Demand
 #------------------------
-st.subheader("🗺️ State Wise Demand")
-
 state_stats = (
     df.groupby("state")
     .size()
@@ -384,8 +382,6 @@ st.dataframe(
 #------------------------
 #Top 5 Cities
 #------------------------
-st.subheader("🏆 Top 5 Cities")
-
 if not df.empty:
 
     st.table(
@@ -395,8 +391,6 @@ if not df.empty:
 #------------------------
 #Feedback
 #------------------------
-search = st.text_input("🔍 Search Feedback")
-
 if not df.empty:
 
     search = st.text_input("🔍 Search Feedback")
