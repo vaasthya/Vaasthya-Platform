@@ -358,7 +358,7 @@ city_states["Demand Score"] = city_states["Requests"] * 10
 st.subheader("⭐ City Demand Score")
 
 st.dataframe(
-    city_stats,
+    city_states,
     use_container_width=True
 )
 
