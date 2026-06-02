@@ -1,7 +1,6 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # ==================================================
 # PAGE CONFIG
@@ -252,19 +251,9 @@ if not df.empty:
         use_container_width=True
     )
 
-    # Pie Chart - Cities
-
-    fig, ax = plt.subplots()
-
-    ax.pie(
-        city_stats["Requests"],
-        labels=city_stats["city"],
-        autopct="%1.1f%%"
-    )
-
-    ax.set_title("Most Requested Cities")
-
-    st.pyplot(fig)
+    st.bar_chart(
+    city_stats.set_index("city")
+)
 
     # =========================================
 
@@ -285,38 +274,17 @@ if not df.empty:
         use_container_width=True
     )
 
-    # Pie Chart - Problems
-
-    fig, ax = plt.subplots()
-
-    ax.pie(
-        problem_stats["Mentions"],
-        labels=problem_stats["problem"],
-        autopct="%1.1f%%"
-    )
-
-    ax.set_title("Most Common Problems")
-
-    st.pyplot(fig)
+   st.bar_chart(
+    problem_stats.set_index("problem")
+)
 
     # =========================================
 
     st.subheader("👥 User Intent")
 
-    user_counts = df["user_type"].value_counts()
-
-    fig, ax = plt.subplots()
-
-    ax.pie(
-        user_counts.values,
-        labels=user_counts.index,
-        autopct="%1.1f%%"
-    )
-
-    ax.set_title("User Intent")
-
-    st.pyplot(fig)
-
+   st.bar_chart(
+    df["user_type"].value_counts()
+)
     # =========================================
 
     st.subheader("💬 Recent Community Feedback")
