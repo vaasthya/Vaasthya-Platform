@@ -382,15 +382,3 @@ if not df.empty:
         city_stats.head(5)
     )
 
-#------------------------
-#Feedback
-#------------------------
-if not df.empty:
-
-    search = st.text_input("Search Feedback")
-
-    if search:
-        feedback_df = feedback_df[
-            feedback_df["feedback"]
-            .str.contains(search, case=False, na=False)
-        ]
