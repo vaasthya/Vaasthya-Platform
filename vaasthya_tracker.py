@@ -318,9 +318,6 @@ else:
 #Metric
 #----------------------------
 if not df.empty:
-
-    st.info(
-    
 target = 100
 
 progress = min(len(df)/target,1.0)
