@@ -234,7 +234,7 @@ c3.metric(
 # ==================================================
 if not df.empty:
 
-    st.subheader("🏆 Most Requested Cities")
+    st.subheader("Most Requested Cities")
 
     city_stats = (
         df.groupby("city")
@@ -280,14 +280,14 @@ if not df.empty:
 
     # =========================================
 
-    st.subheader("👥 User Intent")
+    st.subheader("User Intent")
 
     st.bar_chart(
     df["user_type"].value_counts()
 )
     # =========================================
 
-    st.subheader("💬 Recent Community Feedback")
+    st.subheader("Recent Community Feedback")
 
     feedback_df = df[
         df["feedback"].fillna("").str.strip() != ""
@@ -320,14 +320,14 @@ else:
 if not df.empty:
 
     st.info(
-        f"{len(df)} people have already requested Vaasthya in their cities."
+        f"{len(df)} Requested Cities On Vaasthya."
     )
 
 target = 100
 
 progress = min(len(df)/target,1.0)
 
-st.subheader("📈 Expansion Goal Progress")
+st.subheader("Expansion Goal Progress")
 
 st.progress(progress)
 
@@ -347,7 +347,7 @@ if not df.empty:
     )
 
     st.success(
-        f"🚀 Recommended Next Expansion City: {recommended_city}"
+        f"Recommended Next Expansion City: {recommended_city}"
     )
 
 #-----------------------
@@ -357,7 +357,7 @@ if not df.empty:
 
     city_stats["Demand Score"] = city_stats["Requests"] * 10
 
-    st.subheader("⭐ City Demand Score")
+    st.subheader("City Demand Score")
 
     st.dataframe(
         city_stats,
@@ -393,22 +393,10 @@ if not df.empty:
 #------------------------
 if not df.empty:
 
-    search = st.text_input("🔍 Search Feedback")
+    search = st.text_input("Search Feedback")
 
     if search:
         feedback_df = feedback_df[
             feedback_df["feedback"]
             .str.contains(search, case=False, na=False)
         ]
-
-#------------------------
-#CSV
-#------------------------
-csv = df.to_csv(index=False)
-
-st.download_button(
-    "📥 Download Responses CSV",
-    csv,
-    "vaasthya_responses.csv",
-    "text/csv"
-)
